@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Enhancing McAdams Coefficient-Based Speaker Anonymisation with Cross-Gender Timbre Transfer (2023) | Gewenxin Yu</title>
+    <meta name="author" content="Gewenxin Yu">
+    <meta name="description" content="This work follows the VoicePrivacy2022 Challenge">
+
+    <meta property="og:site_name" content="Gewenxin Yu">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Enhancing McAdams Coefficient-Based Speaker Anonymisation with Cross-Gender Timbre Transfer (2023) | Gewenxin Yu">
+    <meta property="og:description" content="This work follows the VoicePrivacy2022 Challenge">
+    <meta property="og:url" content="https://transcendental-electroacoustic.xyz/research/tt.html">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Enhancing McAdams Coefficient-Based Speaker Anonymisation with Cross-Gender Timbre Transfer (2023) | Gewenxin Yu">
+    <meta name="twitter:description" content="This work follows the VoicePrivacy2022 Challenge">
+
+    <link rel="icon" type="image/x-icon" href="/css/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body class="fixed-top-nav">
+<header>
+  <nav id="navbar" class="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="https://transcendental-electroacoustic.xyz/">
+        <span class="font-weight-bold">Gewenxin</span> Yu
+      </a>
+
+      <button class="navbar-toggler" type="button" onclick="toggleNavbar()" aria-label="Toggle navigation">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <ul class="navbar-nav" id="navbarNav">
+        <li class="nav-item"><a class="nav-link" href="https://transcendental-electroacoustic.xyz/#about">about</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://transcendental-electroacoustic.xyz/#research">research</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://transcendental-electroacoustic.xyz/#sound-works">sound</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://transcendental-electroacoustic.xyz/#mem">memberships</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <progress id="progress" value="0">
+    <span class="progress-bar"></span>
+  </progress>
+</header>
+    <div class="container mt-5">
+      <div class="post">
+<header class="post-header">
+  <h1 class="post-title">
+    Enhancing McAdams Coefficient-Based Speaker Anonymisation with Cross-Gender Timbre Transfer (2023)
+  </h1>
+<p class="post-description">This work follows the VoicePrivacy2022 Challenge</p></header>
+
+<div class="post-meta">
+  <div class="project-links">
+<a href="/files/tt-presentation.pdf" class="btn">Slides</a>  </div>
+  <nav class="post-nav">
+    <a href="/#research" class="back-link">← Back to research</a>
+  </nav>
+</div>
+<hr class="post-divider">
+
+<article class="post-content">
+  <p>This paper would not have been possible without the invaluable support of <a href="https://www.qmul.ac.uk/eecs/people/profiles/saitischaralampos.html">Dr. Charalampos saitis</a> and technical guidance of <a href="https://www.eurecom.fr/en/people/panariello-michele">Michele Panariello</a>@EURECOM. I am also deeply grateful to <a href="https://tonywangx.github.io/">Xin Wang</a> for his insightful open-access tutorial on voice anonymization.</p>
+<blockquote>
+<p>Speaker anonymisation or speaker de-identification involves modifying original speech to resemble the voice of an unspecified speaker, while preserving linguistic content and speech quality. This study introduces a speaker anonymisation system based on the second baseline system from the <a href="https://www.voiceprivacychallenge.org/vp2022/">VoicePrivacy2022</a> Challenge. The evaluation was performed using the evaluation scripts provided by the Challenge. Enhanced privacy is achieved by using a VAE-GAN timbre transfer model to disguise gender identity through a random gender selection strategy. Additionally, the primary objective utility evaluation shows the potential for further improvements. In the secondary utility evaluation, the proposed system shows favourable results with respect to voice distinctiveness, surpassing all baseline systems.  </p>
+</blockquote>
+<p><img alt="" src="/images/tt.jpg"></p>
+<figcaption>The overall architecture of the proposed system. The original speech is used as input and frame-by-frame computation is performed through the Stage 1 to output the result of the first anonymisation. In the Stage 2, the 128x128 mel-spectrograms of the anonymised speech after Stage 1 are extracted. Then the newly generated 128x128 mel-spectrograms are inferred by the pre-trained VAE-GAN model. Finally, the signal is reconstructed using the Fast Griffin-Lim algorithm.</figcaption>
+</article>
+      </div>
+    </div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-text">
+        <p>&copy; 2025-2026 <strong>Gewenxin Yu</strong></p>
+        <p>Powered by <a href="https://getpelican.com/" target="_blank" rel="noopener noreferrer">Pelican</a></p>
+      </div>
+    </div>
+  </div>
+</footer>    <script src="/js/common.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1437 @@
+:root {
+  /* 5-Color Palette */
+  
+  /* 1. Light Blue Gradient - Background */
+  --color-white: #ffffff;
+  
+  /* 2. Deep Black - Primary Text */
+  --color-black: #000000;
+  
+  /* 3. Medium Gray - Secondary Text */
+  --color-gray: #666666;
+  
+  /* 4. Navy Blue - Theme Color */
+  --color-navy: #1d1d1d;
+  
+  /* 5. Deep Red - Accent Color */
+  --color-red: #c0392b;
+
+  /* Application Variables - All derived from 5-color palette */
+  --global-bg-color: linear-gradient(165deg, #ffffff 30%, #eeeeee 50%, #fcfcfc 80%);
+  --global-text-color: var(--color-black);
+  --global-text-color-light: var(--color-gray);
+  --global-theme-color: var(--color-navy);
+  --global-hover-color: var(--color-navy);
+  --global-footer-bg-color: var(--color-navy);
+  --global-footer-text-color: var(--color-gray);
+  --global-divider-color: var(--color-gray);
+  --global-accent-color: var(--color-red);
+
+  /* Derived Colors - Using transparency for subtle variations */
+  --global-code-bg-color: var(--color-white);
+  --global-table-bg-color: var(--color-white);
+  --global-subtle-bg: var(--color-white);
+  --global-border-light: var(--color-gray);
+
+  /* Navbar */
+  --navbar-bg-color: var(--color-white);
+  --navbar-text-color: var(--color-black);
+
+  /* Status Colors - Using existing palette */
+  --success-color: var(--color-navy);
+  --warning-color: var(--color-red);
+  --info-color: var(--color-navy);
+
+  /* Content */
+  --news-table-bg-color: var(--color-white);
+  --content-highlight: #fff;
+
+  /* Typography */
+  --global-font-size: 16px;
+  --global-line-height: 1.5;
+  --font-family-sans-serif: sans-serif;
+  --font-family-serif: serif;
+  --font-family-monospace: monospace;
+}
+
+/* ========================================================================
+   Simple Grid System (Bootstrap alternative)
+   ======================================================================== */
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.col-sm-2, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-12 {
+  padding: 0 15px;
+  width: 100%;
+}
+
+.col-sm-2 {
+  flex: 0 0 16.666667%;
+  max-width: 16.666667%;
+}
+
+.col-sm-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.col-sm-7 {
+  flex: 0 0 58.333333%;
+  max-width: 58.333333%;
+}
+
+.col-sm-8 {
+  flex: 0 0 66.666667%;
+  max-width: 66.666667%;
+}
+
+.col-sm-9 {
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+
+.col-sm-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+/* ========================================================================
+   Global Styles
+   ======================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--global-font-size);
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background: var(--global-bg-color);
+  background-attachment: fixed;
+  color: var(--global-text-color);
+  font-family: var(--font-family-sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: var(--global-line-height);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling and padding for fixed navbar */
+body.fixed-top-nav {
+  padding-top: 56px;
+}
+
+/* ========================================================================
+   Typography
+   ======================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--global-text-color);
+  font-family: var(--font-family-sans-serif);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+h1 {
+  font-family: var(--font-family-sans-serif);
+  font-size: 2.8rem;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--global-text-color);
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  border-bottom: 2px solid var(--global-theme-color);
+  padding-bottom: 0.75rem;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+  position: relative;
+}
+
+h2::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background-color: var(--global-accent-color);
+  transition: width 0.3s ease;
+}
+
+h2:hover::before {
+  width: 100px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--global-text-color-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+p {
+  margin-bottom: 1.25rem;
+  margin-top: 0;
+  text-align: justify;
+  line-height: 1.7;
+  color: var(--global-text-color);
+}
+
+/* Academic paragraph spacing */
+p + p {
+  margin-top: 1rem;
+}
+
+.desc {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--global-text-color-light);
+  margin-bottom: 2.5rem;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+/* geometric dividers */
+.project-divider {
+  border: 0;
+  border-top: 1px solid var(--global-divider-color);
+  margin: 2rem 0;
+  opacity: 0.6;
+}
+
+/* Links */
+a {
+  color: var(--global-theme-color);
+  text-decoration: none;
+
+  border-bottom: 1px solid transparent;
+}
+
+a:hover {
+  color: var(--global-hover-color);
+  border-bottom-color: var(--global-hover-color);
+}
+
+/* Academic content links */
+.post a, .project-description a {
+  border-bottom: 1px solid var(--color-gray);
+}
+
+.post a:hover, .project-description a:hover {
+  border-bottom-color: var(--global-hover-color);
+  /* background-color: var(--color-white); */
+}
+
+/* ========================================================================
+   Navigation Bar
+   ======================================================================== */
+
+.navbar {
+  background-color: var(--color-white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0.75rem 0;
+}
+
+/* Pure minimal navbar without shadows */
+.navbar.scrolled {
+  /* No shadow - pure */
+  box-shadow: none;
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  color: var(--navbar-text-color);
+  font-family: var(--font-family-sans-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.navbar-nav .nav-item {
+  margin-left: 1rem;
+}
+
+.navbar-nav .nav-link {
+  color: var(--navbar-text-color);
+  font-family: var(--font-family-sans-serif);
+  font-weight: 400;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  text-transform: lowercase;
+  transition: color 0.2s ease;
+  text-decoration: none;
+  padding: 0.5rem 0;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--global-theme-color);
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--global-theme-color);
+}
+
+/* Mobile navbar */
+.navbar-toggler {
+  background: none;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+}
+
+.icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--navbar-text-color);
+
+  position: relative;
+}
+
+.icon-bar + .icon-bar {
+  margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .navbar-toggler {
+    display: block;
+  }
+  
+  .navbar-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--navbar-bg-color);
+    border-top: 1px solid var(--color-gray);
+    padding: 1rem;
+    flex-direction: column;
+  }
+  
+  .navbar-nav.show {
+    display: flex;
+}
+  
+  .navbar-nav .nav-item {
+    margin: 0.5rem 0;
+  }
+}
+
+/* Progress bar */
+#progress {
+  background-color: var(--global-divider-color);
+  border: none;
+  height: 2px;
+  left: 0;
+  position: fixed;
+  top: 56px;
+  width: 100%;
+  z-index: 1030;
+}
+
+#progress::-webkit-progress-bar {
+  background-color: transparent;
+}
+
+#progress::-webkit-progress-value {
+  background-color: var(--global-theme-color);
+}
+
+#progress::-moz-progress-bar {
+  background-color: var(--global-theme-color);
+}
+
+/* ========================================================================
+   Profile Section
+   ======================================================================== */
+
+.profile {
+  margin-bottom: 2rem;
+  margin-left: 2rem;
+  width: 200px;
+}
+
+
+
+.profile .address {
+  font-family: var(--font-family-sans-serif);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.profile .address p {
+  color: var(--global-text-color-light);
+  margin: 0.4rem 0;
+  text-align: center;
+  font-weight: 400;
+}
+
+.profile .address p:first-child {
+  color: var(--global-text-color);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.profile .address .profile-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.profile .address .profile-links a {
+  border-bottom: none;
+}
+
+.profile .address .profile-links a:hover {
+  border-bottom: none;
+}
+
+.profile .address .profile-icon {
+  width: 22px;
+  height: 22px;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.profile .address .profile-icon:hover {
+  opacity: 1;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 0.75rem;
+}
+
+.location-icon {
+  width: 14px;
+  height: 14px;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+/* Shown only on narrow screens, where the right-hand profile block is hidden */
+.location-hero {
+  display: none;
+}
+
+/* ========================================================================
+   Hero Section - Photo with Title
+   ======================================================================== */
+
+.hero-section {
+  margin: 2rem 0;
+  clear: both;
+}
+
+.hero-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-photo {
+  width: 80px;
+  height: 80px;
+  border: 2px solid var(--global-divider-color);
+  background-color: var(--color-white);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.hero-photo:hover {
+  border-color: var(--global-theme-color);
+  transition: border-color 0.3s ease;
+}
+
+.hero-text {
+  flex-grow: 1;
+}
+
+.hero-text h1 {
+  margin-bottom: 0.5rem;
+  margin-top: -0.2rem;
+  line-height: 1.2;
+}
+
+.hero-text .desc {
+  margin-bottom: 0;
+}
+
+/* Chinese Name Image Styling */
+.chinese-name {
+  max-width: 100%;
+  height: auto;
+  margin: 0.5rem 0;
+  display: block;
+  filter: contrast(1.1);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Responsive Profile and Hero */
+@media (max-width: 768px) {
+  .profile {
+    display: none;
+  }
+
+  .location-hero {
+    display: flex;
+    margin-top: 0;
+    font-family: var(--font-family-sans-serif);
+    font-size: 0.85rem;
+    color: var(--global-text-color-light);
+  }
+  
+  .hero-section {
+    margin: 1.5rem 0;
+  }
+  
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-photo {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    border: 2px solid var(--global-divider-color);
+    background-color: var(--color-white);
+    object-fit: cover;
+  }
+  
+  .hero-photo:hover {
+    border-color: var(--global-theme-color);
+    transition: border-color 0.3s ease;
+  }
+  
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .hero-text h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 1.75rem;
+    line-height: 1.2;
+    font-weight: 600;
+  }
+  
+  .hero-text .desc {
+    text-align: center;
+    margin: 0;
+    font-size: 1rem;
+    color: var(--global-text-color-light);
+    font-weight: 400;
+  }
+  
+  .chinese-name {
+    max-width: 90%;
+    margin: 0.75rem auto;
+  }
+  
+  /* Mobile Grid Optimization */
+  .container {
+    padding: 0 12px;
+  }
+  
+  .row {
+    margin: 0 -12px;
+  }
+  
+  .col-sm-2, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-12 {
+    padding: 0 12px;
+  }
+}
+
+/* ========================================================================
+   Projects Section
+   ======================================================================== */
+
+.projects {
+  margin: 2rem 0;
+}
+
+.project-item {
+  margin-bottom: 2rem;
+}
+
+.project-title {
+  color: var(--global-text-color);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.project-title:hover {
+  color: var(--global-theme-color);
+}
+
+.project-description {
+  color: var(--global-text-color-light);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.project-links {
+  margin-top: 0.5rem;
+}
+
+.project-links .btn {
+  background-color: transparent;
+  border: 1px solid var(--global-theme-color);
+  color: var(--global-theme-color);
+  font-family: var(--font-family-sans-serif);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-right: 0.75rem;
+  margin-bottom: 0.5rem;
+  padding: 0.4rem 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  display: inline-block;
+}
+
+.project-links .btn:hover {
+  background-color: var(--global-theme-color);
+  border-color: var(--global-theme-color);
+  color: var(--color-white);
+}
+
+.project-divider {
+  border: 0;
+  border-top: 1px solid var(--global-divider-color);
+  margin: 1.5rem 0;
+  opacity: 0.3;
+}
+
+/* ========================================================================
+   News Section (for talks, memberships, etc.)
+   ======================================================================== */
+
+.news {
+  margin: 2rem 0;
+}
+
+.table-row {
+  align-items: flex-start;
+  display: flex;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0;
+}
+
+.abbr {
+  min-width: 120px;
+  margin-right: 1rem;
+}
+
+.badge {
+  background-color: var(--global-subtle-bg);
+  border: 1px solid var(--global-border-light);
+  color: var(--global-text-color-light);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.6rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+}
+
+/* Special badge for dates */
+.badge:not(.status-badge) {
+  background-color: var(--global-theme-color);
+  color: var(--color-white);
+  border-color: var(--global-theme-color);
+}
+
+/* Academic status badges */
+.badge.status-success {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+  color: var(--color-white);
+}
+
+.badge.status-warning {
+  background-color: var(--warning-color);
+  border-color: var(--warning-color);
+  color: var(--color-white);
+}
+
+.badge.status-info {
+  background-color: var(--info-color);
+  border-color: var(--info-color);
+  color: var(--color-white);
+}
+
+.title {
+  color: var(--global-text-color);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+/* Extend concept styling to news/essays section */
+.title .concept-primary {
+  font-style: normal;
+  color: var(--global-theme-color);
+  font-weight: 400;
+}
+
+.title .concept-secondary {
+  font-style: normal;
+  color: var(--global-accent-color);
+  font-weight: 400;
+}
+
+.title:hover {
+  color: var(--global-theme-color);
+}
+
+.description {
+  color: var(--global-text-color-light);
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* ========================================================================
+   Memberships Section (List)
+   ======================================================================== */
+
+.memberships-list {
+  margin: 1rem 0 1.5rem 0;
+  padding-left: 1.5rem;
+  /* list-style: none; */
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--global-text-color-light);
+}
+
+.memberships-list li {
+  margin-bottom: 0.25rem;
+}
+
+.membership-item {
+  color: var(--global-text-color-light);
+  font-weight: 400;
+}
+
+/* ========================================================================
+   Contact Section
+   ======================================================================== */
+
+.contact-info {
+  margin: 2rem 0;
+}
+
+.contact-info h6 {
+  border-bottom: 1px solid var(--global-divider-color);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.25rem;
+}
+
+.contact-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  margin-right: 0.5em;
+}
+
+/* ========================================================================
+   Utility Classes
+   ======================================================================== */
+
+.clearfix::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.float-right {
+  float: right;
+}
+
+.mt-5 {
+  margin-top: 3rem;
+}
+
+.z-depth-0 {
+  box-shadow: none;
+}
+
+.font-weight-bold {
+  font-weight: 700;
+}
+
+/* ========================================================================
+   Responsive Design
+   ======================================================================== */
+
+@media (max-width: 768px) {
+  body.fixed-top-nav {
+    padding-top: 56px;
+  }
+
+  .profile {
+    float: none !important;
+    margin-bottom: 1rem;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .profile .address {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .desc {
+    text-align: center;
+  }
+
+  .table-row {
+    flex-direction: column;
+  }
+
+  .abbr {
+    margin-bottom: 0.5rem;
+    margin-right: 0;
+    min-width: auto;
+  }
+
+  .contact-info .row {
+        flex-direction: column;
+    }
+
+  .contact-info .col-sm-6 {
+    margin-bottom: 1rem;
+  }
+
+  .contact-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .project-links .btn {
+    display: block;
+    margin-bottom: 0.5rem;
+    margin-right: 0;
+    width: 100%;
+  }
+}
+
+/* ========================================================================
+   Post Layouts
+   ======================================================================== */
+
+.post-header {
+  /* margin-bottom: 2rem; */
+}
+
+.post-title {
+  font-family: var(--font-family-sans-serif);
+  font-size: 2.3rem;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--global-text-color);
+}
+
+/* Special terminology styling */
+.post-title i {
+  font-style: normal;
+  color: var(--global-accent-color);
+  font-weight: 400;
+  border-bottom: 1px solid var(--global-accent-color);
+  padding-bottom: 1px;
+}
+
+/* Alternative: Different colors for different concepts */
+.post-title .concept-primary {
+  font-style: normal;
+  color: var(--global-theme-color);
+  font-weight: 400;
+}
+
+.post-title .concept-secondary {
+  font-style: normal;
+  color: var(--global-accent-color);
+  font-weight: 400;
+}
+
+.post-description {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--global-text-color-light);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.post-meta {
+  margin-bottom: 1.5rem;
+}
+
+.post-nav {
+  margin-top: 1rem;
+}
+
+.back-link {
+  color: var(--global-text-color-light);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  border-bottom: none;
+}
+
+.back-link:hover {
+  color: var(--global-theme-color);
+  border-bottom: 1px solid var(--global-theme-color);
+}
+
+.post-divider {
+  border: 0;
+  border-top: 2px solid var(--global-theme-color);
+  margin: 2rem 0;
+  opacity: 0.8;
+  position: relative;
+}
+
+.post-divider::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 80px;
+  height: 2px;
+  background-color: var(--global-accent-color);
+}
+
+.post-content {
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.post-content h1, 
+.post-content h2, 
+.post-content h3, 
+.post-content h4, 
+.post-content h5, 
+.post-content h6 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-family-sans-serif);
+}
+
+.post-content h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  border-bottom: 1px solid var(--global-divider-color);
+  padding-bottom: 0.5rem;
+}
+
+.post-content h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.post-content p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.post-content blockquote {
+  border-left: 4px solid var(--global-theme-color);
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  background-color: var(--content-highlight);
+  font-style: italic;
+}
+
+.post-content code {
+  background-color: var(--global-code-bg-color);
+  padding: 0.2rem 0.4rem;
+  font-family: var(--font-family-monospace);
+  font-size: 0.9rem;
+}
+
+.post-content pre {
+  background-color: var(--global-code-bg-color);
+  padding: 1.5rem;
+  overflow-x: auto;
+  line-height: 1.4;
+  margin: 1.5rem 0;
+}
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+}
+
+/* External links styling */
+.external-link {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.external-btn {
+  background-color: var(--global-theme-color);
+  border: 1px solid var(--global-theme-color);
+  color: var(--color-white);
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+
+}
+
+.external-btn:hover {
+  background-color: var(--global-hover-color);
+  border-color: var(--global-hover-color);
+}
+
+/* ========================================================================
+   Image Styling
+   ======================================================================== */
+
+/* Center all images elegantly - */
+.post-content img {
+  display: block;
+  margin: 2rem auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Figure Styling */
+.post-content figure {
+  margin: 3rem auto;
+  text-align: center;
+  max-width: 90%;
+}
+
+.post-content figure img {
+  margin-bottom: 1rem;
+}
+
+.post-content figcaption {
+  font-family: var(--font-family-sans-serif);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--global-text-color-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 1rem;
+  border-top: 2px solid var(--global-accent-color);
+  margin-bottom: 1rem;
+  padding-top: 0.75rem;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Video styling - Pure */
+.post-content video {
+  display: block;
+  margin: 2.5rem auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Table styling for image galleries */
+.post-content table {
+  width: 100%;
+  margin: 3rem auto;
+  border-collapse: separate;
+  border-spacing: 1rem;
+  background: transparent;
+}
+
+.post-content table img {
+  margin: 0;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+
+.post-content table td {
+  text-align: center;
+  vertical-align: top;
+  padding: 0.5rem;
+  border: none;
+  background: transparent;
+}
+
+.post-content table th {
+  border: none;
+  background: transparent;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+/* Table captions (figcaption in tables) */
+.post-content table figcaption {
+  font-family: var(--font-family-sans-serif);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--global-text-color-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.75rem;
+  border-top: 1px solid var(--global-accent-color);
+  padding-top: 0.5rem;
+  border: none;
+  margin: 0.75rem 0 0 0;
+  padding: 0.5rem 0 0 0;
+}
+
+/* Center element override for legacy content */
+.post-content center {
+  display: block;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.post-content center img,
+.post-content center video {
+  margin: 1rem auto;
+}
+
+/* ========================================================================
+   Footer
+   ======================================================================== */
+
+.site-footer {
+  background-color: var(--global-footer-bg-color);
+  border-top: 1px solid var(--global-divider-color);
+  margin-top: 4rem;
+  padding: 2rem 0;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.footer-text p {
+  color: var(--color-white);
+  font-family: var(--font-family-sans-serif);
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.footer-text p:first-child {
+  margin-bottom: 0.25rem;
+}
+
+.footer-text strong {
+  font-weight: 600;
+}
+
+.footer-text a {
+  color: var(--color-white);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* ========================================================================
+   Discography Page Styles
+   ======================================================================== */
+
+.post-meta {
+  color: var(--global-text-color-light);
+  font-family: var(--font-family-sans-serif);
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  letter-spacing: 0.01em;
+}
+
+.track-list {
+  margin: 2rem 0;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--global-divider-color);
+  font-family: var(--font-family-sans-serif);
+}
+
+.track:last-child {
+  border-bottom: none;
+}
+
+.track-number {
+  flex: 0 0 3rem;
+  font-weight: 500;
+  color: var(--global-text-color-light);
+  font-size: 0.9rem;
+}
+
+.track-title {
+  flex: 1;
+  font-weight: 500;
+  color: var(--global-text-color);
+}
+
+.track-duration {
+  flex: 0 0 4rem;
+  text-align: right;
+  color: var(--global-text-color-light);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .track {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .track-number {
+    flex: none;
+  }
+  
+  .track-title {
+    flex: none;
+  }
+  
+  .track-duration {
+    flex: none;
+    text-align: left;
+  }
+}
+
+/* ========================================================================
+   Audio Player Card (Bandcamp-style)
+   ======================================================================== */
+
+.audio-card {
+  display: flex;
+  border: 1px solid var(--global-divider-color);
+  background-color: var(--color-white);
+  margin: 2.5rem 0;
+  max-width: 100%;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.audio-card:hover {
+  border-color: var(--global-theme-color);
+}
+
+.audio-card-cover {
+  flex: 0 0 160px;
+  width: 160px;
+  height: 160px;
+  background-color: var(--global-theme-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--global-divider-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.audio-card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.audio-card-content {
+  flex: 1;
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.audio-card-header {
+  margin-bottom: 1rem;
+}
+
+.audio-card-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--global-text-color);
+  margin: 0 0 0.375rem 0;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.audio-card-artist {
+  font-size: 0.875rem;
+  color: var(--global-text-color-light);
+  margin: 0;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+}
+
+.audio-card-player {
+  width: 100%;
+  margin-top: 0.75rem;
+}
+
+.audio-card-player audio {
+  width: 100%;
+  height: 40px;
+  outline: none;
+}
+
+/* Customize audio player controls */
+.audio-card-player audio::-webkit-media-controls-panel {
+  background-color: var(--color-white);
+  border-top: 1px solid var(--global-divider-color);
+  padding-top: 0.5rem;
+}
+
+.audio-card-player audio::-webkit-media-controls-play-button {
+  background-color: var(--global-theme-color);
+  border: none;
+}
+
+.audio-card-player audio::-webkit-media-controls-current-time-display,
+.audio-card-player audio::-webkit-media-controls-time-remaining-display {
+  color: var(--global-text-color);
+  font-family: var(--font-family-sans-serif);
+  font-size: 0.75rem;
+}
+
+.audio-card-player audio::-webkit-media-controls-timeline {
+  background-color: var(--global-divider-color);
+}
+
+.audio-card-player audio::-webkit-media-controls-timeline::-webkit-media-slider-thumb {
+  background-color: var(--global-theme-color);
+}
+
+/* Firefox audio player styling */
+.audio-card-player audio::-moz-media-controls {
+  background-color: var(--color-white);
+}
+
+@media (max-width: 768px) {
+  .audio-card {
+    flex-direction: column;
+    margin: 2rem 0;
+  }
+  
+  .audio-card-cover {
+    flex: none;
+    width: 100%;
+    height: 240px;
+    border-right: none;
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+  
+  .audio-card-content {
+    padding: 1.25rem;
+  }
+  
+  .audio-card-title {
+    font-size: 1rem;
+  }
+}
